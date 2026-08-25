@@ -9,17 +9,13 @@ Este projeto é para alunos da disciplina SI01033 (Segurança em Redes de Comput
 
 ## Hash Criptográfico
 
-Começamos com o arquivo `exemplo01.py`. Este arquivo apresenta uma demonstração do conceito de *hash* criptográfico, contextualizado no exemplo de um processo de autenticação (login) de um usuário.
+Começamos com o arquivo `exemplo01.ipynb`. Este arquivo apresenta uma demonstração do conceito de *hash* criptográfico, contextualizado no exemplo de um código Python que recebe uma evidência e calcula o hash desta evidência utilizando 03 (três) tipos de algoritmos.
 
-Dentro do arquivo `exemplo01.py` é implementada uma classe Usuario, 
-que possui 02 (dois) atributos: username e senha, além de um conjunto
-de métodos de instância e de classe necessários ao funcionamento da classe.
+O que deve ser feito?
+1. Executar o código no Google Colab (criar um caderno)
+2. Com propósitos de teste, realizar a criação um arquivo e calcular seu hash
+3. Compartilhe o hash gerado com um colega de sala e verifique se o hash gerado foi mantido
 
-O que deve ser modificado/implementado?
-1. O valor do atributo senha deve ser salvo em formato *hash* (SHA256); 
-2. O método login( ) deve ser implementado de forma a comparar uma senha informada com a senha salva no atributo senha; 
-3. Deve ser implementado um método para aplicar um *salt* na senha; 
-4. Modificar o método login( ) para usar o método implementado no item anterior.
 
 ## Conclusão
 
