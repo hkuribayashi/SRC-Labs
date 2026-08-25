@@ -1,6 +1,3 @@
-# SRC-Labs
-Repositório de Experimentos da Disciplina de Segurança de Redes de Computadores do Curso de Sistemas de Informação da Unifesspa.
-
 # Demonstração de uso de Hash Criptográfico em Python
 
 Este projeto é uma demonstração reproduzível dos conceitos *hash* criptográfico  (dispersão/*digest*), implementados na linguagem Python.
