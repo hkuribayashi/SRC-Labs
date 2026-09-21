@@ -280,82 +280,6 @@ e:
 nmap --script vuln ENDERECO_IP
 ```
 
-## Entrega
-
-Produza um pequeno relatório contendo:
-
-### 1. Identificação do alvo
-
-* endereço IP;
-* sistema utilizado no laboratório;
-* data e horário dos testes.
-
-### 2. Portas TCP
-
-Apresente as portas encontradas e seus respectivos estados.
-
-### 3. Portas UDP
-
-Apresente as portas encontradas e seus respectivos estados.
-
-### 4. Serviços
-
-Identifique os serviços e, quando possível, suas versões.
-
-### 5. Vulnerabilidades
-
-Apresente os resultados produzidos pelos scripts NSE.
-
-### 6. Análise
-
-Responda:
-
-* Qual foi a superfície de exposição identificada?
-* Quais serviços estavam acessíveis pela rede?
-* Quais serviços deveriam ser avaliados pelo administrador?
-* Houve diferença significativa entre TCP e UDP?
-* O Nmap identificou alguma possível vulnerabilidade?
-* Quais resultados precisam de validação adicional?
-* Quais limitações podem existir nos resultados obtidos pelo Nmap?
-
----
-
-# Desafio Adicional — Comparação Antes e Depois
-
-Como atividade experimental, o professor pode disponibilizar uma máquina virtual com alguns serviços propositalmente habilitados.
-
-Faça uma primeira varredura:
-
-```bash
-nmap -sT -sV ENDERECO_IP
-```
-
-Registre os resultados.
-
-Depois, altere a configuração do servidor, por exemplo, **desabilitando um serviço**.
-
-Execute novamente:
-
-```bash
-nmap -sT -sV ENDERECO_IP
-```
-
-Compare os dois resultados.
-
-A ideia é observar experimentalmente a relação:
-
-```text
-Configuração do servidor
-          ↓
-Serviços em execução
-          ↓
-Portas expostas
-          ↓
-Superfície de ataque observável
-```
-
----
-
 # Salvando os Resultados
 
 Para tornar o experimento reproduzível, recomenda-se salvar a saída dos comandos em arquivos.
@@ -389,85 +313,9 @@ resultados/
 └── resultado-vulnerabilidades.txt
 ```
 
----
-
-# Conceitos para Discussão
-
-Durante o laboratório, procure relacionar os resultados obtidos com os seguintes conceitos:
-
-* **Port Scanning**
-* **TCP**
-* **UDP**
-* **TCP Connect Scan**
-* **Porta aberta**
-* **Porta fechada**
-* **Porta filtrada**
-* **Serviço de rede**
-* **Banner**
-* **Service Version Detection**
-* **Nmap Scripting Engine (NSE)**
-* **Vulnerability Scanning**
-* **Superfície de ataque**
-* **Reconhecimento**
-* **Falso positivo**
-* **Falso negativo**
-
----
-
 # Conclusão
 
 O objetivo deste laboratório é permitir que o discente compreenda, de forma prática, o processo de **reconhecimento de serviços de rede por meio de Port Scanning**.
 
 A atividade permite experimentar as diferenças entre **TCP e UDP**, identificar serviços e versões e conhecer o uso do **Nmap Scripting Engine** para verificações relacionadas a vulnerabilidades.
-
-É importante compreender a diferença entre **descoberta** e **exploração**:
-
-```text
-Port Scanning
-      ↓
-Identificação de portas
-      ↓
-Identificação de serviços
-      ↓
-Identificação de possíveis vulnerabilidades
-      ↓
-Validação
-```
-
-O Nmap atua principalmente nas etapas de **reconhecimento e identificação**. A presença de uma porta aberta ou o resultado de um script de vulnerabilidade não significa, por si só, que o sistema esteja efetivamente comprometido.
-
-O laboratório deve ser realizado exclusivamente em ambientes **autorizados e controlados**.
-
----
-
-# Estrutura sugerida do repositório
-
-```text
-laboratorio-nmap-port-scanning/
-│
-├── README.md
-│
-├── exemplos/
-│   ├── exemplo01-tcp.txt
-│   ├── exemplo02-udp.txt
-│   ├── exemplo03-service-version.txt
-│   └── exemplo04-vulnerabilidades.txt
-│
-├── resultados/
-│   ├── resultado-tcp.txt
-│   ├── resultado-udp.txt
-│   └── resultado-vulnerabilidades.txt
-│
-└── relatorio/
-    └── modelo-relatorio.md
-```
-
----
-
-## Referências
-
-* Nmap — Network Mapper
-* Nmap Reference Guide
-* Nmap Scripting Engine (NSE)
-* OWASP — Vulnerability Scanning e práticas de segurança
 
