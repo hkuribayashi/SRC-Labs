@@ -304,14 +304,6 @@ nmap --script vuln ENDERECO_IP -oN resultado-vulnerabilidades.txt
 
 Dessa forma, os resultados podem ser posteriormente analisados e comparados.
 
-Uma possível organização dos arquivos é:
-
-```text
-resultados/
-├── resultado-tcp.txt
-├── resultado-udp.txt
-└── resultado-vulnerabilidades.txt
-```
 
 # Conclusão
 
