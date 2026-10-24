@@ -32,7 +32,7 @@ ou completamente preto (0x000000).
 
 Na imagem abaixo, nós o criptografamos usando o modo ECB.
 
-![Tux-ecb](/Tux.ecb.png)
+![Tux-ecb](Tux.ecb.png)
 
 Como você pode ver, a imagem ainda é reconhecível como um pinguim.
 
