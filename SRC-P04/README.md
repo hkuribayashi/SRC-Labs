@@ -25,7 +25,7 @@ A figura mais famosa por demonstrar isso, de onde vem esse problema
 seu nome, é o mascote pinguim Linux conhecido como "Tux" (autoria de Larry Ewing 
 lewing@isc.tamu.edu [Referência](https://commons.wikimedia.org/wiki/File:Tux.png)):
 
-![Tux](/Tux.png)
+![Tux](Tux.png)
 
 Observe como grandes regiões do desenho são completamente brancas (0xFFFFFF)
 ou completamente preto (0x000000).
@@ -90,7 +90,7 @@ No exemplo a seguir, criptografamos nossa imagem com AES, mas desta vez, usando
 *CBC*. Como você pode ver, agora o conteúdo do arquivo está mais complexo.
 Não temos nenhuma pista aqui do que o conteúdo original poderia ter sido.
 
-![Tux-cbc](/Tux.cbc.png)
+![Tux-cbc](Tux.cbc.png)
 
 ### Testando o Modo ECB
 
