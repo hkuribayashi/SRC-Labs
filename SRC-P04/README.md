@@ -68,7 +68,7 @@ Para criar nosso pinguim (criptografado), queremos seguir os seguintes passos:
 Isso pode ser feito com os seguintes comandos:
 
     head -n 4 Tux.ppm > Tux.header
-    tail -n +5 Tux.ppm > Tux.body
+    tail -c +$(($(wc -c < Tux.header) + 1)) Tux.ppm > Tux.body 
     openssl enc -aes-128-ecb -nosalt -pass pass:"senha" -in Tux.body -out Tux.body.ecb
     cat Tux.header Tux.body.ecb > Tux.ecb.ppm
   
