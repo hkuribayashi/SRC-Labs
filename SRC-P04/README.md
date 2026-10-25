@@ -98,8 +98,8 @@ Para alterar o modo de cifragem para *CBC*, simplemente basta mudar o algoritmo
 para *aes-128-cbc", e alterar o arquivo de saída para *Tux.body.cbc*.
 
     head -n 4 Tux.ppm > Tux.header
-    tail -n +5 Tux.ppm > Tux.body
-    openssl enc -aes-128-cbc -nosalt -pass pass:"rob" -in Tux.body -out Tux.body.cbc
+    tail -c +$(($(wc -c < Tux.header) + 1)) Tux.ppm > Tux.body     
+    openssl enc -aes-128-cbc -nosalt -pass pass:"senha" -in Tux.body -out Tux.body.cbc
     cat Tux.header Tux.body.cbc > Tux.ecb.ppm    
     
   
