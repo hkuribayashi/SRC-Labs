@@ -31,9 +31,10 @@ Para testar uma requisição HTTP é necessário abrir uma conexão TCP com
 o servidor de destino, por meio do aplicativo *netcat*, e posteriormente
 realizar uma requisição HTTP conforme exemplo abaixo:
 
-    $ nc 200.129.138.99 80
+    $ nc -C 200.129.138.35 80
     GET / HTTP/1.1
     Host: coordenador.fadesp.org.br
+    Connection: close
 
 Após digitar o texto acima, duas linhas em branco devem ser inseridas 
 (com a tecla ENTER), para informar que já finalizamos a requisição.
@@ -42,6 +43,28 @@ Em seguida, o servidor deve devolver uma resposta, conforme exemplificado
 na figura `Imagem1.png`, abaixo.
 
 ![Imagem1](/SRC-P07/Imagem1.png)
+
+### Emulando um Cliente HTTP (fazendo uma requisição)
+
+Você também pode colocar o nc para escutar em uma porta local, abrir essa porta no navegador para inspecionar a requisição real que ele envia e devolver uma página HTML.
+
+    $ nc -l -p 8080
+
+(No macOS ou sistemas BSD, use nc -l 8080 sem o -p).
+
+Acesse no navegador:
+Abra http://localhost:8080. No terminal, você verá exatamente o texto bruto que o seu navegador enviou (GET / HTTP/1.1, User-Agent, Accept, etc.).
+
+Envie a resposta HTTP:
+Enquanto o navegador fica aguardando na tela de carregamento, digite (ou cole) no terminal a resposta abaixo e pressione Enter + Ctrl+C (para fechar a conexão e liberar o navegador):
+
+    HTTP/1.1 200 OK
+    Content-Type: text/html; charset=UTF-8
+    Content-Length: 24
+    Connection: close
+
+<h1>Ola via Netcat!</h1>
+
 
 ### Testando uma requisição HTTP
 
@@ -54,11 +77,9 @@ com um servidor por meio do comando abaixo. Observe que agora estamos
 utilizando a porta 443, padrão para comunicações HTTPS. Estamos utilizando 
 o *openssl* porque o aplicativo *netcat* não possui suporte a conexões SSL/TLS.
 
-    $ openssl s_client -ign_eof -connect <endereco_ip>:443
+    $ openssl s_client -ign_eof -connect endereco_ip:443
 
-O comando acima abre uma conexão SSL/TLS com um servidor que tem suporte a HTTPS.
-Porém, ainda precisamos de fato enviar o pedido (requisição HTTP). Até então, apenas
-a conexão TCP e o túnel SSL/TLS foi estabelecido. Ainda precisamos *falar* HTTP para 
+O comando acima abre uma conexão SSL/TLS com um servidor que tem suporte a HTTPS. Porém, ainda precisamos de fato enviar o pedido (requisição HTTP). Até então, apenas a conexão TCP e o túnel SSL/TLS foi estabelecido. Ainda precisamos *falar* HTTP para 
 fazer o pedido de uma página web.
 
 Para isso criamos o arquivo `requisicao.txt`, cujo conteúdo por ser visto abaixo.
@@ -73,7 +94,7 @@ Para isso criamos o arquivo `requisicao.txt`, cujo conteúdo por ser visto abaix
 Observe que o arquivo deve possuir duas linhas em branco ao final. Para combinar o arquivo com o *openssl*
 basta executar o seguinte comando abaixo:
 
-    $ cat requisicao.txt | openssl s_client -ign_eof -connect <endereco_ip>:443
+    $ cat requisicao.txt | openssl s_client -ign_eof -connect endereco_ip:443
 
 ## Conclusão
 
