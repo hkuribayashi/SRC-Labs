@@ -41,7 +41,7 @@ Após digitar o texto acima, duas linhas em branco devem ser inseridas
 Em seguida, o servidor deve devolver uma resposta, conforme exemplificado
 na figura `Imagem1.png`, abaixo.
 
-![Imagem1](/Imagem1.png)
+![Imagem1](/SRC-P07/Imagem1.png)
 
 ### Testando uma requisição HTTP
 
